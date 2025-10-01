@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Text Effect</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+    }
+    svg {
+      width: 80%;
+      height: auto;
+    }
+    text {
+      font-family: Arial, sans-serif;
+      font-size: 180px;
+      font-weight: bold;
+      fill: none;
+      stroke: #00aaff;
+      stroke-width: 3px;
+    }
+    .water {
+      fill: #00aaff;
+      animation: wave 4s linear infinite;
+    }
+    @keyframes wave {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-160px); }
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 800 300">
+    <!--  text -->
+    <text x="50%" y="50%" text-anchor="middle" dy=".35em">Water</text>
+
+    <!-- clipping path -->
+    <clipPath id="text-clip">
+      <text x="50%" y="50%" text-anchor="middle" dy=".35em">Water</text>
+    </clipPath>
+
+    <!-- Wave shape -->
+    <g clip-path="url(#text-clip)">
+      <path class="water" d="
+        M0,200 
+        Q40,180 80,200 
+        T160,200 
+        T240,200 
+        T320,200 
+        T400,200 
+        T480,200 
+        T560,200 
+        T640,200 
+        T720,200 
+        T800,200
+        V300 H0 Z">
+      </path>
+    </g>
+  </svg>
+</body>
+</html>
